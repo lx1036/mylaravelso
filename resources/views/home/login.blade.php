@@ -21,26 +21,26 @@
                         </div>
                     @endif
 
-                    @form(['route'=>'auth.login'])
+                    <form action="{{route('auth.login')}}" method="post">
                         <div class="form-group">
-                            @label('username', '用户名:', ['class'=>'control-label'])
-                            @text('username', null, ['class'=>'form-control', 'placeholder'=>trans('home.username_placeholder')])
+                            <label for="email">{{trans('home.username')}}:</label>
+                            <input type="email" class="form-control" id="email" placeholder="{{trans('home.email_input')}}">
                         </div>
                         <div class="form-group">
-                            @label('password', '密码:', ['class'=>'control-label'])
-                            @text('password', null, ['class'=>'form-control', 'placeholder'=>trans('home.password_placeholder')])
+                            <label for="password">{{trans('home.password')}}:</label>
+                            <input type="password" class="form-control" id="password" placeholder="{{trans('home.password_input')}}">
                         </div>
                         <div class="checkbox">
                             <label>
-                                @checkbox('remember'){{trans('home.remember_me')}}
+                                <input type="checkbox">{{trans('home.checkout')}}
                             </label>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block btn-login">{{trans('home.login')}}</button>
                         </div>
-                    @endform
+                    </form>
 
-                    <p class="text-center" style="margin-top: 10px">或</p>
+                    <p class="text-center" style="margin-top: 10px">{{trans('home.or')}}</p>
                     <a class="btn btn-default btn-block btn-login-github" href="{{url('login/github')}}">
                         <i class="fa fa-github">
                             {{trans('home.login_with_github')}}

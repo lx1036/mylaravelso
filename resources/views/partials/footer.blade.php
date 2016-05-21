@@ -8,7 +8,7 @@
                 @endforeach
             </div>
             <div class="col-md-5 about">
-                {{trans('footer.credits')}}
+                {!! trans('footer.credits') !!}
                 <a href="{{url('about')}}">{{trans('footer.about')}}</a>
                 {{trans('footer.footer_links')}}
             </div>

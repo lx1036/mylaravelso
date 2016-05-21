@@ -7,13 +7,13 @@
  */
 
 return [
-    'partner'       => '合作伙伴',
+    'partner'       => '鍚堜綔浼欎即',
     'friends_links' => [
         'Easy WeChat'  => 'https://easywechat.org',
         'PHPHub'       => 'http://phphub.org/',
-        'Laravel学院'  => 'http://laravelacademy.org/',
+        'Laravel瀛﹂櫌'  => 'http://laravelacademy.org/',
     ],
-    'about'         => '关于',
+    'about'         => '鍏充簬',
     'footer_links'  => '',
     'credits' => 'Website built with <a href="http://laravel.com">Laravel</a> by <a target="_blank" href="https://segmentfault.com/blog/lx1036">lx1036</a>',
 ];
