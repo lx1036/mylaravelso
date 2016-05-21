@@ -7,3 +7,7 @@ Route::get('logout', ['as'=>'auth.logout', 'uses'=>'AuthController@getLogout']);
 Route::get('login/github', ['as'=>'auth.login.github', 'uses'=>'AuthController@getLoginWithGithub']);
 Route::post('login', 'AuthController@postLogin');
 Route::post('register', 'AuthController@postRegister');
+
+Route::get('/', function () {
+    return 'hello laravel';
+});
