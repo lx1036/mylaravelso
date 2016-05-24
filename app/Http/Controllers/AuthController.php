@@ -42,12 +42,39 @@ class AuthController extends BaseController
 
     public function postLogin(Request $request, Guard $guard)
     {
+        $credentials = $request->only(['username', 'password']);
+        $remember    = $request->get('remember', false);
 
+        if(str_contains($credentials['username'], '@')){
+            $credentials['emails'] = $credentials['username'];
+            unset($credentials['username']);
+        }
+
+        if($guard->attempt($credentials, $remember)){
+           return $this->redirectIntended(route('user.index'));
+        }
+        return $this->redirectBack(['login_errors'=>true]);
     }
 
     public function getRegister()
     {
         return view('home.register');
+    }
+
+    public function postRegister(Guard $guard)
+    {
+        $form = $this->users->getRegistrationForm();
+        if(! $form->isValid()){
+            return $this->redirectBack(['errors' => $form->errors()]);
+//            return redirect()->back()->with('errors', $form->errors());
+        }
+        
+        if($user = $this->users->create($form->getInputData())){
+            $guard->login($user, true);
+            return $this->redirectRoute('user.index', [], ['first_use'=>true]);
+        }
+
+        return $this->redirectRoute('home');
     }
 
 

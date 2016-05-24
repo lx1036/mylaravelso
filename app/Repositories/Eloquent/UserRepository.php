@@ -50,8 +50,8 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
     public function create(array $data)
     {
         $user           = $this->getNew();
-        $user->email    = e($data['email']);
         $user->username = e($data['username']);
+        $user->email    = e($data['email']);
         $user->password = Hash::make($data['password']);
         $user->photo    = isset($data['image_url'])? $data['image_url'] :'';
         $user->save();
@@ -101,5 +101,13 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
         }
 
         $user->save();
+    }
+
+    /**
+     * @return \Illuminate\Foundation\Application|mixed
+     */
+    public function getRegistrationForm()
+    {
+        return app('App\Services\Forms\RegistrationForm');
     }
 }

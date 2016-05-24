@@ -23,16 +23,16 @@
 
                     <form action="{{route('auth.login')}}" method="post">
                         <div class="form-group">
-                            <label for="email">{{trans('home.username')}}:</label>
-                            <input type="email" class="form-control" id="email" placeholder="{{trans('home.email_input')}}">
+                            <label for="username">{{trans('home.username')}}:</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="{{trans('home.username_input')}}">
                         </div>
                         <div class="form-group">
                             <label for="password">{{trans('home.password')}}:</label>
-                            <input type="password" class="form-control" id="password" placeholder="{{trans('home.password_input')}}">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="{{trans('home.password_input')}}">
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox">{{trans('home.checkout')}}
+                                <input type="checkbox" name="remember">{{trans('home.checkout')}}
                             </label>
                         </div>
                         <div class="form-group">
