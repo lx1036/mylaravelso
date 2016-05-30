@@ -27,5 +27,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\UserRepositoryInterface',
             'App\Repositories\Eloquent\UserRepository'
         );
+        $this->app->bind(
+            'App\Repositories\TrickRepositoryInterface',
+            'App\Repositories\Eloquent\TrickRepository'
+        );
     }
 }

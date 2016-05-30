@@ -23,19 +23,19 @@
                     <form action="{{route('auth.register')}}" method="post">
                         <div class="form-group">
                             <label for="username">{{trans('home.username')}}:</label>
-                            <input type="text" class="form-control" id="username" placeholder="{{trans('home.username_input')}}">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="{{trans('home.username_input')}}">
                         </div>
                         <div class="form-group">
                             <label for="email">{{trans('home.email')}}:</label>
-                            <input type="email" class="form-control" id="email" placeholder="{{trans('home.email_input')}}">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="{{trans('home.email_input')}}">
                         </div>
                         <div class="form-group">
                             <label for="password">{{trans('home.password')}}:</label>
-                            <input type="password" class="form-control" id="password" placeholder="{{trans('home.password_input')}}">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="{{trans('home.password_input')}}">
                         </div>
                         <div class="form-group">
                             <label for="password_confirmation">{{trans('home.password_confirmation')}}:</label>
-                            <input type="password" class="form-control" id="password_confirmation" placeholder="{{trans('home.confirmation_input')}}">
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="{{trans('home.confirmation_input')}}">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block btn-login">{{trans('home.register')}}</button>

@@ -110,4 +110,9 @@ class UserRepository extends AbstractRepository implements UserRepositoryInterfa
     {
         return app('App\Services\Forms\RegistrationForm');
     }
+
+    public function getSettingsForm()
+    {
+        return app('App\Services\Forms\SettingsForm');
+    }
 }

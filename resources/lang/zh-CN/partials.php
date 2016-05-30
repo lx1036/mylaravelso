@@ -15,4 +15,5 @@ return [
     'my_favorites'      => '我的收藏',
     'settings'          => '设置',
     'logout'            => '登出',
+    'search_placeholder'=> '搜索...',
 ];

@@ -27,7 +27,7 @@ abstract class AbstractForm
         $this->inputData = app('request')->all();
     }
 
-    public function getInputData()
+    protected function getInputData()
     {
         return $this->inputData;
     }
