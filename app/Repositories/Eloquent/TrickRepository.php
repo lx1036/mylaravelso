@@ -14,6 +14,8 @@ use App\Repositories\TrickRepositoryInterface;
 use App\Tag;
 use App\User;
 use App\Trick;
+use App\Exceptions\CategoryNotFoundException;
+use App\Exceptions\TagNotFoundException;
 
 class TrickRepository extends AbstractRepository implements TrickRepositoryInterface
 {
@@ -106,6 +108,28 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
     public function findByCategory($slug, $perPage = 9)
     {
         // TODO: Implement findByCategory() method.
+        $category = $this->category->whereSlug($slug)->first();
+
+        if(is_null($category)){
+            throw new CategoryNotFoundException('The category'.$slug.'does not exist!');
+        }
+
+        $tricks = $category->tricks()->orderBy('created_at', 'desc')->paginate($perPage);
+
+        return [$category, $tricks];
+    }
+
+    public function findByTag($slug, $perPage = 9)
+    {
+        // TODO: Implement findByTag() method.
+        $tag = $this->tag->whereSlug($slug)->first();
+        if(is_null($tag)){
+            throw new TagNotFoundException('The tag'.$tag.'does not exist!');
+        }
+
+        $tricks = $tag->tricks()->orderBy('created_at', 'desc')->paginate($perPage);
+
+        return [$tag, $tricks];
     }
 
     public function listTagsIdsForTrick(Trick $trick)
@@ -153,10 +177,7 @@ class TrickRepository extends AbstractRepository implements TrickRepositoryInter
         // TODO: Implement incrementViews() method.
     }
 
-    public function findByTag($slug, $perPage = 9)
-    {
-        // TODO: Implement findByTag() method.
-    }
+
 
     public function findNextTrick(Trick $trick)
     {

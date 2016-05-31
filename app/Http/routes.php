@@ -11,6 +11,7 @@ Route::get('login/github', ['as'=>'auth.login.github', 'uses'=>'AuthController@g
 //User Profile Route
 Route::get('user', ['as'=>'user.index', 'uses'=>'UserController@getIndex']);
 
-Route::get('/', function () {
-    return 'hello laravel';
-});
+Route::get('/', ['as'=>'browse.recent', 'uses'=>'BrowseController@getBrowseRecent']);
+Route::get('/popular', ['as'=>'browse.popular', 'uses'=>'BrowseController@getBrowsePopular']);
+Route::get('/comments', ['as'=>'browse.comments', 'uses'=>'BrowseController@getBrowseComments']);
+Route::get('/about', ['as'=>'about', 'uses'=>'HomeController@getAbout']);
